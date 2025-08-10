@@ -1,10 +1,8 @@
 # ☕ Lozan Kafe Android Uygulaması / Lozan Cafe Android App
 
-![App Screenshot](Giriş_ekranı.png)
-
 ---
 
-## 🇹🇷 Uygulama Özellikleri
+## Uygulama Özellikleri
 
 📱 **Lozan Kafe Android Uygulaması**, modern ve kolay bir sipariş deneyimi sunar:
 
@@ -17,7 +15,7 @@
 
 ---
 
-## 🇬🇧 App Features
+## App Features
 
 📱 **Lozan Cafe Android App** offers a modern and easy ordering experience:
 
@@ -30,7 +28,7 @@
 
 ---
 
-## 🔧 Kurulum / Installation
+## Kurulum / Installation
 
 1. Android Studio ile projeyi açın  
 2. Firebase yapılandırmasını tamamlayın  
@@ -38,19 +36,7 @@
 
 ---
 
-## 📸 Ekran Görüntüleri / Screenshots
-
-![Screenshot](Giriş_ekranı/menu-screen.png)
-![Screenshot](Sipariş_ekranı/menu-screen.png)
-![Screenshot](Menu_ekranı/menu-screen.png)
-![Screenshot](Menu_Giris/menu-screen.png)
-![Screenshot](Siparis/menu-screen.png)
-
-📌 *Ekran görüntüleri uygulamadan alınmıştır.*
-
----
-
-## 📌 Teknolojiler / Technologies
+## Teknolojiler / Technologies
 
 - Android Studio (Kotlin / Java)
 - Firebase Realtime Database
@@ -59,7 +45,7 @@
 
 ---
 
-## 🤝 Katkıda Bulun / Contribute
+## Katkıda Bulun / Contribute
 
 Katkıda bulunmak isterseniz:
 - Fork’layın
@@ -68,10 +54,9 @@ Katkıda bulunmak isterseniz:
 
 ---
 
-## 📬 İletişim / Contact
+## İletişim / Contact
 
 Ekrem Karabıyık  
 📧 ekremkarabiyikk@gmail.com
 
 ---
-
