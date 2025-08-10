@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".singInFragment">
+
+    <LinearLayout
+        android:id="@+id/linear_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/savas"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnknownIdInLayout">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="139dp"
+            android:layout_height="138dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/lozankafelogo"
+            app:layout_constraintEnd_toStartOf="@+id/LozanGirisText"
+            tools:srcCompat="@drawable/lozankafelogo" />
+
+        <TextView
+            android:id="@+id/LozanGirisText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="LOZAN KAFE"
+            android:textColor="#CBB396"
+            android:textSize="15pt"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mainLinear"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642">
+
+        <TextView
+            android:id="@+id/girisText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="15dp"
+            android:text="GİRİŞ"
+            android:textSize="35sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="146dp">
+        <EditText
+            android:id="@+id/K_adi"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="100dp"
+            android:hint="Email giriniz" />
+
+        <ImageView
+            android:id="@+id/gifLoader"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:visibility="invisible"/>
+
+        <EditText
+            android:id="@+id/Sifre"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:hint="Şifrenizi giriniz"
+            android:inputType="textPassword"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/kayitBtn"
+                android:layout_width="119dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:text="KAYIT OL" />
+
+            <Button
+                android:id="@+id/girisBtn"
+                android:layout_width="119dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="20dp"
+                android:text="GİRİŞ YAP" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

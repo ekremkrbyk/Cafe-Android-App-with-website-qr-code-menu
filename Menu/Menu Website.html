@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lozan Kafe Menüsü</title>
+    <link rel="icon" href="lozankafeico.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f1e1; /* Sıcak tonlar */
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px;
+        }
+        .logo {
+            max-width: 150px;
+            margin-right: 20px;
+            border-radius: 15px;
+        }
+        h1 {
+            color: #333;
+            font-size: 2rem;
+        }
+        .menu-category {
+            margin-top: 20px;
+        }
+        .menu-category h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            align-items: center;
+        }
+        .menu-item button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .menu-item button:hover {
+            background-color: #218838;
+        }
+        #cart {
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff3cd;
+            border-radius: 5px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+        }
+        .remove-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+        #checkout {
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        #checkout:hover {
+            background-color: #0056b3;
+        }
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .success-modal.show {
+            display: block;
+        }
+        .success-icon {
+            font-size: 50px;
+            color: #28a745;
+            animation: pop 0.5s ease;
+        }
+        @keyframes pop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f1e1;
+            position: relative;
+        }
+        .top-bar {
+            position: absolute;
+            margin-top: 5px;
+            right: 60px;
+        }
+        .top-bar button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            margin-right: 120px;
+            margin-top: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .top-bar button:hover {
+            background-color: #0056b3;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        .modal input {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 8px;
+        }
+        .modal button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .modal button:hover {
+            background-color: #218838;
+        }
+        .close-btn {
+            background-color: #dc3545;
+            margin-top: 10px;
+        }
+        .register-link {
+            margin-top: 10px;
+            color: #007bff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+             <img src="lozan kafe logo.jpg" alt="Lozan Kafe Logo" class="logo">
+             <h1>Lozan Kafe Menüsü</h1>
+             <div class="top-bar">
+                <button id="login-btn" onclick="showLoginModal()">Giriş Yap</button>
+                <button id="logout-btn" onclick="logout()">Çıkış Yap</button>
+            </div>
+        
+        </div>
+        <div class="menu-category">
+            <h2>Sıcak İçecekler</h2>
+            <div class="menu-item"><span>Kahve</span> <span>20₺</span> <button onclick="addToCart('Kahve', 20)">Ekle</button></div>
+            <div class="menu-item"><span>Çay</span> <span>10₺</span> <button onclick="addToCart('Çay', 10)">Ekle</button></div>
+        </div>
+        <div class="menu-category">
+            <h2>Soğuk İçecekler</h2>
+            <div class="menu-item"><span>Soğuk Kahve</span> <span>25₺</span> <button onclick="addToCart('Soğuk Kahve', 25)">Ekle</button></div>
+            <div class="menu-item"><span>Portakal Suyu</span> <span>15₺</span> <button onclick="addToCart('Portakal Suyu', 15)">Ekle</button></div>
+        </div>
+        <div class="menu-category">
+            <h2>Tatlılar</h2>
+            <div class="menu-item"><span>Pasta</span> <span>30₺</span> <button onclick="addToCart('Pasta', 30)">Ekle</button></div>
+            <div class="menu-item"><span>Baklava</span> <span>100₺</span> <button onclick="addToCart('Baklava', 100)">Ekle</button></div>
+            <div class="menu-item"><span>Tiramisu</span> <span>50₺</span> <button onclick="addToCart('Tiramisu', 50)">Ekle</button></div>
+            <div class="menu-item"><span>San Sebastian</span> <span>70₺</span> <button onclick="addToCart('San Sebastian', 70)">Ekle</button></div>
+        </div>
+        <div id="cart">
+            <h2>Sipariş listeniz</h2>
+            <ul id="cart-items"></ul>
+            <p><strong>Toplam:</strong> <span id="total-price">0</span>₺</p>
+            <button id="checkout" onclick="placeOrder()">Siparişi Tamamla</button>
+        </div>
+    </div>
+    <div id="success-modal" class="success-modal">
+        <div class="success-icon">✔</div>
+        <p>Siparişiniz başarıyla tamamlandı!</p>
+    </div>
+
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal">
+            <h2>Giriş Yap</h2>
+            <input type="email" placeholder="E-posta">
+            <input type="password" placeholder="Şifre">
+            <button onclick="login()">Giriş Yap</button>
+            <p class="register-link" onclick="openRegisterModal()">Hesabın yok mu? Kayıt ol</p>
+            <button class="close-btn" onclick="closeModal()">Kapat</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="register-modal">
+        <div class="modal">
+            <h2>Kayıt Ol</h2>
+            <input type="text" id="register-username" placeholder="Kullanıcı Adı">
+            <input type="email" id="register-email" placeholder="E-posta">
+            <input type="password" id="register-password" placeholder="Şifre">
+            <input type="tel" id="register-phone" placeholder="Telefon Numarası">
+            <button onclick="register()">Kayıt Ol</button>
+            <p class="register-link" onclick="showLoginModal()">Zaten hesabın var mı? Giriş yap</p>
+            <button class="close-btn" onclick="closeModal()">Kapat</button>
+        </div>
+    </div>
+    
+
+    <script>
+        let totalPrice = 0;
+        let cart = [];
+    
+        window.addToCart = function (item, price) {
+            console.log(`Sepete eklendi: ${item} - ${price}₺`);
+    
+            const cartItems = document.getElementById("cart-items");
+            const listItem = document.createElement("li");
+            listItem.className = "cart-item";
+            listItem.innerHTML = `${item} - ${price}₺ <button class='remove-btn' onclick='removeFromCart(this, ${price})'>Çıkar</button>`;
+            cartItems.appendChild(listItem);
+    
+            cart.push({ item, price });
+            totalPrice += price;
+            document.getElementById("total-price").textContent = totalPrice;
+        }
+    
+        window.removeFromCart = function (button, price) {
+            button.parentElement.remove();
+            totalPrice -= price;
+            document.getElementById("total-price").textContent = totalPrice;
+        }
+
+        window.addToCart = addToCart;
+        window.removeFromCart = removeFromCart;
+        window.placeOrder = placeOrder;
+
+        function openRegisterModal() {
+    document.getElementById("register-modal").style.display = "flex";
+}
+
+    </script>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    
+        const firebaseConfig = {
+            //Firebase özel bilgiler apikey,domain gibi 
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        window.register = async function () {
+
+    if (!email || !password || !email != null || !password != null) {
+        alert("Lütfen geçerli bir e-posta ve şifre girin!");
+        return;
+    }
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        alert("Kayıt başarılı! Şimdi giriş yapabilirsiniz.");
+    } catch (error) {
+        console.error("Kayıt hatası:", error);
+        alert(error.message);
+    }
+};
+
+window.logout = async function () {
+    try {
+        await signOut(auth);
+        alert("Çıkış yapıldı.");
+        checkUserStatus();
+    } catch (error) {
+        console.error("Çıkış hatası:", error);
+        alert(error.message);
+    }
+};
+
+function checkUserStatus() {
+    onAuthStateChanged(auth, (user) => {
+        const loginBtn = document.getElementById("login-btn");
+        const registerBtn = document.getElementById("register-btn");
+        const logoutBtn = document.getElementById("logout-btn");
+
+        if (user) {
+            loginBtn.style.display = "none";
+            registerBtn.style.display = "none";
+            logoutBtn.style.display = "block";
+        } else {
+            loginBtn.style.display = "block";
+            registerBtn.style.display = "block";
+            logoutBtn.style.display = "none";
+        }
+    });
+}
+
+// Sayfa yüklendiğinde kullanıcı durumunu kontrol et
+checkUserStatus();
+
+
+        window.placeOrder = async function () {
+    if (cart.length === 0) {
+        alert("Sepetiniz boş! Lütfen sipariş ekleyin.");
+        return;
+    }
+
+    // Kullanıcının giriş yapıp yapmadığını kontrol et
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            try {
+                await addDoc(collection(db, "orders"), {
+                    userId: user.uid,
+                    items: cart,
+                    total: totalPrice,
+                    timestamp: new Date()
+                });
+
+                // Sipariş tamamlandı mesajı göster
+                document.getElementById("success-modal").classList.add("show");
+
+                // Sepeti temizle
+                document.getElementById("cart-items").innerHTML = "";
+                document.getElementById("total-price").textContent = "0";
+                cart = [];
+                totalPrice = 0;
+
+                setTimeout(() => {
+                    document.getElementById("success-modal").classList.remove("show");
+                }, 3000);
+            } catch (error) {
+                console.error("Sipariş oluşturulurken hata oluştu:", error);
+                alert("Sipariş tamamlanırken hata oluştu.");
+            }
+        } else {
+            alert("Lütfen sipariş vermeden önce giriş yapın.");
+        }
+    });
+};
+
+async function login() {
+        const email = document.getElementById("login-email").value.trim();
+        const password = document.getElementById("login-password").value.trim();
+
+        if (email == null || password == null ) {
+            alert("Lütfen geçerli bir e-posta ve şifre girin!");
+            return;
+        }
+
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            alert("Giriş başarılı!");
+            closeModal();
+            checkUserStatus();
+        } catch (error) {
+            console.error("Giriş hatası:", error);
+            alert(error.message);
+        }
+    }
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+async function register() {
+    const username = document.getElementById("register-username").value.trim();
+    const email = document.getElementById("register-email").value.trim();
+    const password = document.getElementById("register-password").value.trim();
+    const phone = document.getElementById("register-phone").value.trim();
+
+    if (username == null || email == null || password == null || phone == null) {
+            alert("Lütfen tüm alanları doldurun!");
+            return;
+        }
+        if (!validateEmail(email)) {
+            alert("Geçerli bir e-posta adresi girin!");
+            return;
+        }
+        if (password.length < 6) {
+            alert("Şifre en az 6 karakter olmalıdır!");
+            return;
+        }
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // Firestore'da kullanıcı bilgilerini kaydetme
+        await setDoc(doc(db, "users", user.uid), {
+            username: username,
+            email: email,
+            phone: phone,
+            createdAt: new Date(),
+        });
+
+        console.log("Kullanıcı başarıyla kaydedildi:", user.uid);
+        alert("Kayıt başarılı! Giriş yapabilirsiniz.");
+        closeModal(); // Modalı kapat
+    } catch (error) {
+        console.error("Kayıt sırasında hata oluştu:", error);
+        alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+    }
+}
+
+    </script>
+
+    <script>
+        function showLoginModal() {
+            closeModal()
+            document.getElementById("login-modal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("login-modal").style.display = "none";
+            document.getElementById("register-modal").style.display = "none";
+        }
+        function switchToRegister() {
+            alert("Kayıt ol sayfasına yönlendirileceksiniz!");
+            openRegisterModal()
+        }
+        window.onload = function() {
+            showLoginModal();
+        };
+    </script>
+
+</body>
+</html>

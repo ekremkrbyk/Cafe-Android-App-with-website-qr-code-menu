@@ -1,0 +1,29 @@
+@startuml mimari lozan kafe 
+
+title Lozan Kafe Mimari 
+
+node "İstemciler"{
+    node "Mobil Uygulama" as Mobile #3498DB
+    node "Web Uygulama" as Web
+}
+
+cloud "Google Firebase" {
+    node "Firebase Hosting" as Hosting
+    node "Firebase Firestore"
+    node "Fİrebase Realtime DB"
+    node "Firebase Auth"
+    database "Firestore"
+    database "Realtime Database"
+}
+
+Mobile ===> Hosting #3498DB : <b> <color:3498DB > Qr Kod </color> </b>
+Mobile ===> "Firebase Auth" #3498DB : <b> <color:3498DB> Giriş/Kayıt Olma </color> </b>
+Mobile ===> "Firestore" #3498DB : <b> <color:3498DB> Kullanıcı Verileri </color> </b>
+Mobile ===> "Realtime Database" #3498DB : <b> <color:3498DB> Sipariş Bilgileri </color> </b>
+
+Web ===> Hosting : <b> WEB SİTE HTML/CSS/JS </b>
+Web ===> "Firebase Auth" : <b> Giriş/Kayıt Olma </b>
+Web ===> "Firestore"
+Web ===> "Realtime Database"
+
+@enduml

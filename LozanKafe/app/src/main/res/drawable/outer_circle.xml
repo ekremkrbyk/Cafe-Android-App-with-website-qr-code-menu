@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Dış yuvarlak -->
+    <item>
+        <shape android:shape="oval"> <!-- Dış yuvarlak -->
+            <solid android:color="#000000"/> <!-- Siyah renk -->
+            <size
+                android:width="10dp"
+                android:height="10dp"/>
+        </shape>
+    </item>
+
+    <!-- İç yuvarlak -->
+    <item android:top="10dp" android:left="10dp" android:right="10dp" android:bottom="10dp">
+        <shape android:shape="oval">
+            <solid android:color="#00F40A"/> <!-- Beyaz renk -->
+            <size
+                android:width="80dp"
+            android:height="80dp"/>
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "927988394199",
+    "firebase_url": "https://loiza-coffe-default-rtdb.firebaseio.com",
+    "project_id": "loiza-coffe",
+    "storage_bucket": "loiza-coffe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927988394199:android:a684549c18292429d8e892",
+        "android_client_info": {
+          "package_name": "com.example.lozankafe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQZN1xNlK_fcmQF5kKsRkDNu9Gca3t0yk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
